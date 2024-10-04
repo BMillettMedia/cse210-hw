@@ -1,6 +1,6 @@
 //New Entry Management
-using System
-punlic class Entry
+using System;
+public class Entry
 {
     //attributes
     public string Date { get; set;}

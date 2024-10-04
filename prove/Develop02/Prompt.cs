@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-public Class Prompt;
+public class Prompt;
 {
     //attributes list
     private List<string> prompts;
