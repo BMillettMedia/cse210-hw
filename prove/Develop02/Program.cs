@@ -41,7 +41,22 @@ class Program
                     break;
 
                 case "2":
-                    journal.DisplayJournal();
+                    Console.WriteLine("Enter filename to display:");
+    string displayFilename = Console.ReadLine();
+    
+    if (File.Exists(displayFilename))
+    {
+        string[] fileContent = File.ReadAllLines(displayFilename);
+        Console.WriteLine("Contents of the file:");
+        foreach (string line in fileContent)
+        {
+            Console.WriteLine(line);
+        }
+    }
+    else
+    {
+        Console.WriteLine("File does not exist.");
+    }
                     break;
 
                 case "3":
