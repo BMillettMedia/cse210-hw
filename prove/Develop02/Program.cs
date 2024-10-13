@@ -1,5 +1,7 @@
+
 //Journal Database and entry system
 using System;
+using System.Collections.Generic;  // Needed for handling lists in other classes
 
 class Program
 {
