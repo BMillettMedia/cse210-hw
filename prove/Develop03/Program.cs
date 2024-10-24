@@ -1,3 +1,5 @@
+//For the stretch goal I added a difficulty selector to the code to and a way to restart the program once the scripture is completely hidden. 
+
 using System;
 using System.Collections.Generic;
 
