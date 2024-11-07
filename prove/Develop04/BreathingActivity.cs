@@ -13,16 +13,22 @@ public class BreathingActivity : Activity
         {
             Console.WriteLine("Breathe in...");
             Thread.Sleep(interval * 1000);
+            ShowSpinner();
             Console.WriteLine("Breathe out...");
             Thread.Sleep(interval * 1000);
+            ShowSpinner();
             Console.WriteLine("Breathe in...");
             Thread.Sleep(interval * 1000);
+            ShowSpinner();
             Console.WriteLine("Breathe out...");
             Thread.Sleep(interval * 1000);
+            ShowSpinner();
             Console.WriteLine("Breathe in...");
             Thread.Sleep(interval * 1000);
+            ShowSpinner();
             Console.WriteLine("Breathe out...");
             Thread.Sleep(interval * 1000);
+            ShowSpinner();
         }
     }
 }

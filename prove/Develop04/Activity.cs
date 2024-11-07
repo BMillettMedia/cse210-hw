@@ -33,7 +33,7 @@ public abstract class Activity
         for (int i = 0; i < 5; i++)
         {
             Console.Write(".");
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
         }
         Console.WriteLine();
     }
