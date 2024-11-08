@@ -23,7 +23,8 @@ public class ReflectionActivity : Activity
         while (DateTime.Now < endTime)
         {
             Console.WriteLine(Questions[random.Next(Questions.Length)]);
-            ShowSpinner();
+            //ShowSpinner();
+            
         }
     }
 }

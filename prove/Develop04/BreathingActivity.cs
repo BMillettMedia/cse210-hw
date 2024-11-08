@@ -12,22 +12,22 @@ public class BreathingActivity : Activity
         while (DateTime.Now < endTime)
         {
             Console.WriteLine("Breathe in...");
-            Thread.Sleep(interval * 1000);
+            //Thread.Sleep(interval * 1000);
             ShowSpinner();
             Console.WriteLine("Breathe out...");
-            Thread.Sleep(interval * 1000);
+            //Thread.Sleep(interval * 1000);
             ShowSpinner();
             Console.WriteLine("Breathe in...");
-            Thread.Sleep(interval * 1000);
+            //Thread.Sleep(interval * 1000);
             ShowSpinner();
             Console.WriteLine("Breathe out...");
-            Thread.Sleep(interval * 1000);
+            //Thread.Sleep(interval * 1000);
             ShowSpinner();
             Console.WriteLine("Breathe in...");
-            Thread.Sleep(interval * 1000);
+            //Thread.Sleep(interval * 1000);
             ShowSpinner();
             Console.WriteLine("Breathe out...");
-            Thread.Sleep(interval * 1000);
+            //Thread.Sleep(interval * 1000);
             ShowSpinner();
         }
     }
