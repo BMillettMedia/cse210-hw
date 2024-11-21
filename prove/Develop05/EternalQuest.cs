@@ -52,7 +52,15 @@ public class EternalQuest
 
     private void UpdateLevel()
     {
-        if (_score >= 100)
+        if (_score >= 200)
+        {
+            _level = 5;
+        }
+        else if (_score >= 150)
+        {
+            _level = 4;
+        }
+        else if (_score >= 100)
         {
             _level = 3;
         }

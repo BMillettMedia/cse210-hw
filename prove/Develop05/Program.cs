@@ -74,7 +74,7 @@ class Program
                     break;
 
                 case "5":
-                    Console.Write("Enter Filename to Save: ");
+                    Console.Write("Enter Filename to Save(EX. JohnSmith.txt): ");
                     string saveFile = Console.ReadLine();
                     quest.SaveProgress(saveFile);
                     break;
