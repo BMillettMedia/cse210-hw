@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -11,20 +9,18 @@ namespace CSVSearchExportApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter file path to CSV file:")
+            Console.WriteLine("Enter the path to the CSV file:");
             string filePath = Console.ReadLine();
 
-            if (!File.Exists(File))
+            if (!File.Exists(filePath))
             {
-                Console.WriteLine("File not found. Exiting program.")
+                Console.WriteLine("File not found. Exiting program.");
                 return;
             }
 
-            DataHandler dataHandler = new dataHandler(filepath);
+            DataHandler dataHandler = new DataHandler(filePath);
             Menu menu = new Menu(dataHandler);
             menu.Display();
         }
     }
-
 }
-
