@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace CSVSearchExportApp
 {
@@ -9,15 +7,17 @@ namespace CSVSearchExportApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the path to the CSV file:");
-            string filePath = Console.ReadLine();
+            // Specify the file name
+            string filePath = "SampleData.csv";
 
+            // Check if the file exists
             if (!File.Exists(filePath))
             {
-                Console.WriteLine("File not found. Exiting program.");
+                Console.WriteLine($"File '{filePath}' not found. Ensure it is in the same directory as the program.");
                 return;
             }
 
+            // Load the data and start the menu
             DataHandler dataHandler = new DataHandler(filePath);
             Menu menu = new Menu(dataHandler);
             menu.Display();
