@@ -1,61 +1,25 @@
+using System;
+
 namespace CSVSearchExportApp
 {
-    class Menu
+    public class Menu
     {
-        private DataHandler _dataHandler;
+        private readonly DataHandler _dataHandler;
 
         public Menu(DataHandler dataHandler)
         {
             _dataHandler = dataHandler;
         }
 
-        public void Display()
+        public void Run()
         {
-            while (true)
-            {
-                Console.WriteLine("\n--- MENU ---");
-                Console.WriteLine("1. Search and Export Items");
-                Console.WriteLine("2. Exit");
-                Console.Write("Choose an option: ");
+            FinalRecord record = new FinalRecord();
 
-                string choice = Console.ReadLine();
+            // Collect and populate the record with user inputs
+            _dataHandler.CollectAndPopulateRecord(record);
 
-                switch (choice)
-                {
-                    case "1":
-                        SearchAndAggregate();
-                        break;
-                    case "2":
-                        Console.WriteLine("Exiting program.");
-                        return;
-                    default:
-                        Console.WriteLine("Invalid choice. Please try again.");
-                        break;
-                }
-            }
-        }
-
-        private void SearchAndAggregate()
-        {
-            Console.WriteLine("Enter search category (e.g., 'Meat'):");
-            string category = Console.ReadLine();
-
-            Console.WriteLine("Enter search term (e.g., 'Beef'):");
-            string searchTerm = Console.ReadLine();
-
-            FinalRecord filteredRecord = _dataHandler.FilterAndAggregate(category, searchTerm);
-
-            if (filteredRecord == null || string.IsNullOrEmpty(filteredRecord.ToString()))
-            {
-                Console.WriteLine("No items found for your search.");
-                return;
-            }
-
-            Console.WriteLine("Enter the output CSV file name (e.g., 'output.csv'):");
-            string outputFileName = Console.ReadLine();
-
-            _dataHandler.SaveFinalRecord(filteredRecord, outputFileName);
-            Console.WriteLine($"Results have been saved to '{outputFileName}'");
+            // Export the final record to CSV
+            _dataHandler.ExportRecord(record, "exported_data.csv");
         }
     }
 }
