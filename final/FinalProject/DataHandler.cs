@@ -103,7 +103,7 @@ namespace CSVSearchExportApp
             string pairingName = Console.ReadLine();
 
             // Check if pairing item exists in the source data and auto-populate
-            var pairingItem = csvData.FirstOrDefault(row => row[8] == pairingName); // Column 8 contains @Product Photo-Pairing
+            var pairingItem = csvData.FirstOrDefault(row => row[7] == pairingName); // Column 7 contains Item-Pairing
             if (pairingItem != null)
             {
                 record.Pairing = pairingItem[7]; // Listed Item-Pairing is in column 7
@@ -210,12 +210,12 @@ namespace CSVSearchExportApp
             string bakeryName = Console.ReadLine();
 
             // Check if bakery item exists in the source data and auto-populate
-            var bakeryItem = csvData.FirstOrDefault(row => row[13] == bakeryName); // Column 13 for Listed Item-Bakery
+            var bakeryItem = csvData.FirstOrDefault(row => row[16] == bakeryName); // Column 16 for Listed Item-Bakery
             if (bakeryItem != null)
             {
-                record.Bakery = bakeryItem[13]; // Listed Item-Bakery
-                record.BakeryPhoto = bakeryItem[14]; // @Product Photo-Bakery
-                record.BakeryBlurb = bakeryItem[15]; // Blurb-Bakery
+                record.Bakery = bakeryItem[16]; // Listed Item-Bakery
+                record.BakeryPhoto = bakeryItem[17]; // @Product Photo-Bakery
+                record.BakeryBlurb = bakeryItem[18]; // Blurb-Bakery
             }
             else
             {
@@ -234,20 +234,20 @@ namespace CSVSearchExportApp
                 string cheeseName = Console.ReadLine();
 
                 // Check if cheese item exists in the source data and auto-populate
-                var cheeseItem = csvData.FirstOrDefault(row => row[16] == cheeseName); // Column 16 for Listed Item-Cheese
+                var cheeseItem = csvData.FirstOrDefault(row => row[19] == cheeseName); // Column 19 for Listed Item-Cheese
                 if (cheeseItem != null)
                 {
                     if (i == 1)
                     {
-                        record.Cheese1 = cheeseItem[16]; // Listed Item-Cheese
-                        record.Cheese1Photo = cheeseItem[17]; // @Product Photo-Cheese
-                        record.Cheese1Blurb = cheeseItem[18]; // Blurb-Cheese
+                        record.Cheese1 = cheeseItem[19]; // Listed Item-Cheese
+                        record.Cheese1Photo = cheeseItem[20]; // @Product Photo-Cheese
+                        record.Cheese1Blurb = cheeseItem[21]; // Blurb-Cheese
                     }
                     else
                     {
-                        record.Cheese2 = cheeseItem[16];
-                        record.Cheese2Photo = cheeseItem[17];
-                        record.Cheese2Blurb = cheeseItem[18];
+                        record.Cheese2 = cheeseItem[19];
+                        record.Cheese2Photo = cheeseItem[20];
+                        record.Cheese2Blurb = cheeseItem[21];
                     }
                 }
                 else
@@ -267,7 +267,134 @@ namespace CSVSearchExportApp
                     }
                 }
             }
+
+
+
+            // Ask for 4 grocery items
+            Console.WriteLine("Please enter 4 grocery items (Listed Item, Stock Photo):");
+            for (int i = 1; i <= 4; i++)
+            {
+                Console.WriteLine($"Grocery {i}:");
+                Console.Write($"Listed Item-Grocery-{i}: ");
+                string groceryName = Console.ReadLine();
+
+                // Check if grocery item exists in the source data and auto-populate
+                var groceryItem = csvData.FirstOrDefault(row => row[9] == groceryName); // Column 19 for Listed Item-Grocery
+                if (groceryItem != null)
+                {
+                    if (i == 1)
+                    {
+                        record.Grocery1 = groceryItem[9]; // Listed Item-Grocery
+                        record.Grocery1Photo = groceryItem[10]; // @Product Photo-Grocery
+                    }
+                    else
+                    {
+                        record.Grocery2 = groceryItem[9];
+                        record.Grocery2Photo = groceryItem[10];
+                    }
+                    else
+                    {
+                        record.Grocery3 = groceryItem[9];
+                        record.Grocery3Photo = groceryItem[10];
+                    }
+                    else
+                    {
+                        record.Grocery4 = groceryItem[9];
+                        record.Grocery4Photo = groceryItem[10];
+                    }
+                }
+                else
+                {
+                    // Prompt the user to input data if no matching cheese item is found in CSV
+                    if (i == 1)
+                    {
+                        record.Grocery1 = groceryName;
+                        record.Grocery1Photo = GetUserInput("@Product Photo-Grocery-{i}: ");
+                    }
+                    else
+                    {
+                        record.Grocery2 = groceryName;
+                        record.Grocery2Photo = GetUserInput("@Product Photo-Grocery-{i}: ");
+                    }
+                    else
+                    {
+                        record.Grocery3 = groceryName;
+                        record.Grocery3Photo = GetUserInput("@Product Photo-Grocery-{i}: ");
+                    }
+                    else
+                    {
+                        record.Grocery4 = groceryName;
+                        record.Grocery4Photo = GetUserInput("@Product Photo-Grocery-{i}: ");
+                    }
+                    
+                }
+            }
+
+
+
+             // Ask for 4 bar items
+            Console.WriteLine("Please enter 4 bar items (Listed Item, Stock Photo):");
+            for (int i = 1; i <= 4; i++)
+            {
+                Console.WriteLine($"Bar {i}:");
+                Console.Write($"Listed Item-Bar-{i}: ");
+                string barName = Console.ReadLine();
+
+                // Check if grocery item exists in the source data and auto-populate
+                var barItem = csvData.FirstOrDefault(row => row[10] == barName); // Column 11 for Listed Item-Grocery
+                if (barItem != null)
+                {
+                    if (i == 1)
+                    {
+                        record.Bar1 = barItem[10]; // Listed Item-Bar
+                        record.Bar1Photo = barItem[11]; // @Product Photo-Bar
+                    }
+                    else
+                    {
+                        record.Bar2 = barItem[10]; // Listed Item-Bar
+                        record.Bar2Photo = barItem[11]; // @Product Photo-Bar
+                    }
+                    else
+                    {
+                        record.Bar3 = barItem[10]; // Listed Item-Bar
+                        record.Bar3Photo = barItem[11]; // @Product Photo-Bar
+                    }
+                    else
+                    {
+                        record.Bar4 = barItem[10]; // Listed Item-Bar
+                        record.Bar4Photo = barItem[11]; // @Product Photo-Bar
+                    }
+                }
+                else
+                {
+                    // Prompt the user to input data if no matching cheese item is found in CSV
+                    if (i == 1)
+                    {
+                        record.Bar1 = barName;
+                        record.Bar1Photo = GetUserInput("@Product Photo-Bar-{i}: ");
+                    }
+                    else
+                    {
+                        record.Bar2 = barName;
+                        record.Bar2Photo = GetUserInput("@Product Photo-Bar-{i}: ");
+                    }
+                    else
+                    {
+                        record.Bar3 = barName;
+                        record.Bar3Photo = GetUserInput("@Product Photo-Bar-{i}: ");
+                    }
+                    else
+                    {
+                        record.Bar4 = barName;
+                        record.Bar4Photo = GetUserInput("@Product Photo-Bar-{i}: ");
+                    }
+                    
+                }
+            }
         }
+
+
+
 
         // Helper method to load the CSV data
         public List<List<string>> LoadCsvData(string filePath)
